@@ -64,3 +64,76 @@ std::vector<int> stringToDigits(std::string number) {
         out.push_back(char2int(*it));
     return out;
 }
+
+std::vector<int> addTwoIntegers(std::vector<int> num1, std::vector<int> num2) {
+    std::vector<int> out;
+
+    auto n1 = num1.begin();
+    auto n2 = num2.begin();
+
+    int digit1 = 0;
+    int digit2 = 0;
+
+    int carry = 0;
+    int temp = 0;
+
+    while (!(n1 == num1.end() && n2 == num2.end())) {
+        if (n1 == num1.end())
+            digit1 = 0;
+        else
+            digit1 = *n1;
+
+        if (n2 == num2.end())
+            digit2 = 0;
+        else
+            digit2 = *n2;
+
+        temp = digit1 + digit2 + carry;
+
+        out.push_back(temp % 10);
+        carry = temp / 10;
+
+        if (n1 != num1.end())
+            ++n1;
+        if (n2 != num2.end())
+            ++n2;
+    }
+    return out;
+}
+
+std::vector<int> addIntegers(std::vector<std::vector<int>> numbers) {
+    int N = numbers.size();
+
+    if (N == 0)
+        return { 0 };
+
+    if (N == 1)
+        return numbers[0];
+
+    std::vector<int> out = addTwoIntegers(numbers[0], numbers[1]);
+
+    if (N > 2) {
+        for (auto i = 2; i < N; ++i)
+            out = addTwoIntegers(out, numbers[i]);
+    }
+    return out;
+}   
+
+std::string addIntegers(std::vector<std::string> numbers) {
+    int N = numbers.size();
+
+    if (N == 0)
+        return "0";
+
+    if (N == 1)
+        return numbers[0];
+
+    std::vector<int> out = addTwoIntegers(stringToDigits(numbers[0]), stringToDigits(numbers[1]));
+
+    if (N > 2) {
+        for (auto i = 2; i < N; ++i)
+            out = addTwoIntegers(out, stringToDigits(numbers[i]));
+    }
+    return digitsToString(out);
+}
+

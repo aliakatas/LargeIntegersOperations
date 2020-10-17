@@ -11,17 +11,17 @@ int main(int argc, const char* argv[]) {
 
     std::cout << "   123456 = " << digitsToString(stringToDigits("123456")) << "\n";
 
-    //std::cout << "    123456 + 123456 = " << 123456 + 123456 << "\n";
-    //std::cout << "-->                   " << addTwoIntegers("123456", "123456") << "\n";
+    std::cout << "    123456 + 123456 = " << 123456 + 123456 << "\n";
+    std::cout << "-->                   " << digitsToString(addTwoIntegers(stringToDigits("123456"), stringToDigits("123456"))) << "\n";
 
-    //std::cout << "    1234567890 + 1234567890 = " << 1234567890U + 1234567890U << "\n";
-    //std::cout << "-->                           " << addTwoIntegers("1234567890", "1234567890") << "\n";
+    std::cout << "    1234567890 + 1234567890 = " << 1234567890U + 1234567890U << "\n";
+    std::cout << "-->                           " << digitsToString(addTwoIntegers(stringToDigits("1234567890"), stringToDigits("1234567890"))) << "\n";
 
-    //std::cout << "    123 + 123456 = " << 123 + 123456 << "\n";
-    //std::cout << "-->                " << addTwoIntegers("123", "123456") << "\n";
+    std::cout << "    123 + 123456 = " << 123 + 123456 << "\n";
+    std::cout << "-->                " << digitsToString(addTwoIntegers(stringToDigits("123"), stringToDigits("123456"))) << "\n";
 
-    //std::cout << "    1234 + 12345 + 123456 + 1234567 = " << 1234 + 12345 + 123456 + 1234567 << "\n";
-    //std::cout << "-->                                   " << addIntegers({ "1234",  "12345", "123456", "1234567" }) << "\n";
+    std::cout << "    1234 + 12345 + 123456 + 1234567 = " << 1234 + 12345 + 123456 + 1234567 << "\n";
+    std::cout << "-->                                   " << addIntegers({ "1234",  "12345", "123456", "1234567" }) << "\n";
 
     std::cout << "Done. \n\n";
     return 0;
